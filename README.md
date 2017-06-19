@@ -18,8 +18,6 @@ Setup monitoring with [Prometheus](https://prometheus.io) and [Grafana](https://
 
 - Docker
 
-## Prometheus
-
 ### Run
 
 Modify: `/prometheus-data/prometheus.yml`, replace `192.168.0.10` with your own host machine's IP.
@@ -66,10 +64,18 @@ Grafana Dashboard to import: [/grafana-dashboard.json](/grafana-dashboard.json)
 
 ### Result
 
-#### Prometheus
+#### Prometheus Data
 
-![Prometheus - Chart](/images/prometheus-chart.png)
-![Prometheus - Alert](/images/prometheus-alert.png)
+```
+avg(rate(http_request_duration_ms_sum[1m]) / rate(http_request_duration_ms_count[1m])) by (service, route, method, code)
+```
+
+![Prometheus - Data](/images/prometheus-data.png)
+
+#### Prometheus Alerts
+
+![Prometheus - Alert Pending](/images/prometheus-alert-pending.png)
+![Prometheus - Alert Firing](/images/prometheus-alert-firing.png)
 
 #### Grafana Dashboard
 
