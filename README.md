@@ -45,6 +45,21 @@ Necessary when you modified prometheus-data.
 curl -X POST http://localhost:9090/-/reload
 ```
 
+### Prometheus Data
+
+```
+avg(rate(http_request_duration_ms_sum[1m]) / rate(http_request_duration_ms_count[1m])) by (service, route, method, code)
+```
+
+![Prometheus - Data](/images/prometheus-data.png)
+
+### Prometheus Alerts
+
+States of active alerts: `pending`, `firing`
+
+![Prometheus - Alert Pending](/images/prometheus-alert-pending.png)
+![Prometheus - Alert Firing](/images/prometheus-alert-firing.png)
+
 ## Grafana
 
 ### Run
@@ -62,24 +77,11 @@ Password: admin
 
 Grafana Dashboard to import: [/grafana-dashboard.json](/grafana-dashboard.json)
 
-### Result
-
-#### Prometheus Data
-
-```
-avg(rate(http_request_duration_ms_sum[1m]) / rate(http_request_duration_ms_count[1m])) by (service, route, method, code)
-```
-
-![Prometheus - Data](/images/prometheus-data.png)
-
-#### Prometheus Alerts
-
-![Prometheus - Alert Pending](/images/prometheus-alert-pending.png)
-![Prometheus - Alert Firing](/images/prometheus-alert-firing.png)
-
-#### Grafana Dashboard
-
-Grafana Dashboard: [/grafana-dashboard.json](/grafana-dashboard.json)
+### Grafana Dashboard
 
 ![Grafana - Response Time](/images/grafana-response-time.png)
 ![Grafana - Throughput](/images/grafana-throughput.png)
+
+## Acknowledgements
+
+This project was kindly sponsored by [RisingStack](http://risingstack.com).
