@@ -31,11 +31,45 @@ docker run -p 9090:9090 -v "$(pwd)/prometheus-data":/prometheus-data prom/promet
 
 ### Example Queries
 
-- Throughput: `sum(rate(http_request_duration_ms_count[1m])) by (service, route, method, code)  * 60` rpm (request pet minute)
-- 95th Response Time: `histogram_quantile(0.95, sum(rate(http_request_duration_ms_bucket[1m])) by (le, service, route, method))` ms
-- Median Response Time: `histogram_quantile(0.5, sum(rate(http_request_duration_ms_bucket[1m])) by (le, service, route, method))` ms
-- Average Response Time: `avg(rate(http_request_duration_ms_sum[1m]) / rate(http_request_duration_ms_count[1m])) by (service, route, method, code)`
-- Average Memory Usage: `avg(nodejs_external_memory_bytes / 1024) by (service)` MB
+#### Throughput
+
+##### Request Per Minute
+
+```
+sum(rate(http_request_duration_ms_count[1m])) by (service, route, method, code)  * 60
+```
+
+#### Response Time
+
+In milliseconds.
+
+##### 95th Response Time
+
+```
+histogram_quantile(0.95, sum(rate(http_request_duration_ms_bucket[1m])) by (le, service, route, method))
+```
+
+##### Median Response Time:
+
+```
+histogram_quantile(0.5, sum(rate(http_request_duration_ms_bucket[1m])) by (le, service, route, method))
+```
+
+##### Average Response Time
+
+```
+avg(rate(http_request_duration_ms_sum[1m]) / rate(http_request_duration_ms_count[1m])) by (service, route, method, code)
+```
+
+#### Memory Usage
+
+##### Average Memory Usage
+
+In Megabyte.
+
+```
+avg(nodejs_external_memory_bytes / 1024) by (service)
+```
 
 ### Reload config
 
