@@ -84,4 +84,4 @@ Grafana Dashboard to import: [/grafana-dashboard.json](/grafana-dashboard.json)
 
 ## Acknowledgements
 
-This project was kindly sponsored by [RisingStack](http://risingstack.com).
+This example is sponsored by [RisingStack](http://risingstack.com).
