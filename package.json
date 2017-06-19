@@ -1,0 +1,33 @@
+{
+  "name": "example-prometheus",
+  "version": "1.0.0",
+  "main": "src",
+  "description": "Prometheus example",
+  "author": "RisingStack, Inc.",
+  "dependencies": {
+    "express": "4.15.3",
+    "prom-client": "9.1.1"
+  },
+  "devDependencies": {
+    "eslint": "3.19.0",
+    "eslint-config-airbnb-base": "11.2.0",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-promise": "3.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RisingStack/example-prometheus-nodejs.git"
+  },
+  "keywords": [
+    "monitoring",
+    "nodejs",
+    "node",
+    "prometheus"
+  ],
+  "author": "RisingStack, Inc.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RisingStack/example-prometheus-nodejs/issues"
+  },
+  "homepage": "https://github.com/RisingStack/example-prometheus-nodejs#readme",
+}
