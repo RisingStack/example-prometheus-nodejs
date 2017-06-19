@@ -66,8 +66,14 @@ Grafana Dashboard to import: [/grafana-dashboard.json](/grafana-dashboard.json)
 
 ### Result
 
+#### Prometheus
+
 ![Prometheus - Chart](/images/prometheus-chart.png)
 ![Prometheus - Alert](/images/prometheus-alert.png)
+
+#### Grafana Dashboard
+
+Grafana Dashboard: [/grafana-dashboard.json](/grafana-dashboard.json)
 
 ![Grafana - Response Time](/images/grafana-response-time.png)
 ![Grafana - Throughput](/images/grafana-throughput.png)
