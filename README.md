@@ -2,7 +2,7 @@
 
 ## Goal
 
-Setup monitoring with [Prometheus](https://prometheus.io) and [Grafana](https://grafana.com/).
+Setup monitoring with [Prometheus](https://prometheus.io) and [Grafana](https://grafana.com).
 
 ## Steps
 
@@ -33,6 +33,14 @@ docker run -p 9090:9090 -v "$(pwd)/prometheus-data":/prometheus-data prom/promet
 
 #### Throughput
 
+#### Error rate
+
+Range[0,1]: number of 5xx requests / total number of requests
+
+```
+sum(increase(http_request_duration_ms_count{code=~"^5..$"}[1m])) /  sum(increase(http_request_duration_ms_count[1m]))
+```
+
 ##### Request Per Minute
 
 ```
@@ -41,7 +49,20 @@ sum(rate(http_request_duration_ms_count[1m])) by (service, route, method, code) 
 
 #### Response Time
 
-In milliseconds.
+#### Apdex
+
+[Apdex](https://en.wikipedia.org/wiki/Apdex) score approximation:  
+`100ms` target and `300ms` tolerated response time
+
+```
+(
+  sum(rate(http_request_duration_ms_bucket{le="100"}[1m])) by (service)
++
+  sum(rate(http_request_duration_ms_bucket{le="300"}[1m])) by (service)
+) / 2 / sum(rate(http_request_duration_ms_count[1m])) by (service)
+```
+
+> Note that we divide the sum of both buckets. The reason is that the histogram buckets are cumulative. The le="100" bucket is also contained in the le="300" bucket; dividing it by 2 corrects for that. - [Prometheus docs](https://prometheus.io/docs/practices/histograms/#apdex-score)
 
 ##### 95th Response Time
 
