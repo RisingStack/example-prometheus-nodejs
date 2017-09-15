@@ -27,7 +27,7 @@ Host machine IP address: `ifconfig | grep 'inet 192'| awk '{ print $2}'`
 docker run -p 9090:9090 -v "$(pwd)/prometheus-data":/prometheus-data prom/prometheus -config.file=/prometheus-data/prometheus.yml
 ```
 
-Open Prometheus: [http://http://localhost:9090](http://http://localhost:9090/graph)
+Open Prometheus: [http://localhost:9090](http://localhost:9090/graph)
 
 ### Example Queries
 
@@ -123,7 +123,7 @@ States of active alerts: `pending`, `firing`
 docker run -i -p 3000:3000 grafana/grafana
 ```
 
-[Open Grafana: http://http://localhost:3000](http://http://localhost:3000)
+[Open Grafana: http://localhost:3000](http://localhost:3000)
 
 ```
 Username: admin
