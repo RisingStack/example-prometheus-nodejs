@@ -89,7 +89,7 @@ avg(rate(http_request_duration_ms_sum[1m]) / rate(http_request_duration_ms_count
 In Megabyte.
 
 ```
-avg(nodejs_external_memory_bytes / 1024) by (service)
+avg(nodejs_external_memory_bytes / 1024 / 1024) by (service)
 ```
 
 ### Reload config
