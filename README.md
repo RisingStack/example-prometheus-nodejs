@@ -130,7 +130,27 @@ Username: admin
 Password: admin
 ```
 
+### Setting datasource
+
+Create a Grafana datasource with this settings:
++ name: DS_PROMETHEUS
++ type: prometheus
++ url: http://localhost:9090
++ access: direct
+
+Or use this curl request:
+```sh
+curl 'http://admin:admin@localhost:3000/api/datasources' -H 'Content-Type: application/json;charset=UTF-8' -H 'Accept: application/json, text/plain, */*' --data-binary '{"name":"DS_PROMETHEUS","type":"prometheus","url":"http://localhost:9090","access":"direct","jsonData":{"keepCookies":[]},"secureJsonFields":{}}' --compressed
+```
+
+### Setting dashboard
+
 Grafana Dashboard to import: [/grafana-dashboard.json](/grafana-dashboard.json)
+
+Or use this curl request:
+```sh
+curl 'http://admin:admin@localhost:3000/api/dashboards/import' -H 'Accept-Encoding: gzip, deflate' -H 'Content-Type: application/json;charset=UTF-8' -H 'Accept: application/json, text/plain, */*' --data-binary '%{copy and paste grafana-dashboard.json}' --compressed
+```
 
 ### Grafana Dashboard
 
