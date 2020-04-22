@@ -24,7 +24,7 @@ Modify: `/prometheus-data/prometheus.yml`, replace `192.168.0.10` with your own 
 Host machine IP address: `ifconfig | grep 'inet 192'| awk '{ print $2}'`
 
 ```sh
-docker run -p 9090:9090 -v "$(pwd)/prometheus-data":/prometheus-data prom/prometheus -config.file=/prometheus-data/prometheus.yml
+docker run -p 9090:9090 -v "$(pwd)/prometheus-data":/prometheus-data prom/prometheus:v1.8.2 -config.file=/prometheus-data/prometheus.yml
 ```
 
 Open Prometheus: [http://localhost:9090](http://localhost:9090/graph)
