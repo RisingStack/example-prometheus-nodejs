@@ -1,5 +1,5 @@
 {
-  "name": "example-prometheus",
+  "name": "example-prometheus-nodejs",
   "version": "1.0.0",
   "main": "src",
   "description": "Prometheus example",
